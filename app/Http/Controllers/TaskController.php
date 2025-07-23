@@ -38,7 +38,7 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|unique:tasks'
+            'title' => 'required|unique:tasks|min:3'
         ]);
         Task::create([
             'title' => $request->input('title'),
@@ -69,13 +69,13 @@ class TaskController extends Controller
     public function update(Request $request, Task $task)
     {
         $request->validate([
-            'title' => 'required'
+            'title' => 'required|unique:tasks|min:3'
         ]);
         $task->update([
-                'title' => $request->input('title'),
-                'is_completed' => $request->has('complete')
-            ]);
-            return redirect('/tasks');
+            'title' => $request->input('title'),
+            'is_completed' => $request->has('complete')
+        ]);
+        return redirect('/tasks');
     }
 
     /**
