@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    <a href="/tasks" id="back">
+        Back &rarr;
+    </a>
     <h1 class="uppercase" id="title">
         new task
     </h1>
@@ -8,7 +11,7 @@
         <form action="/tasks" method="POST">
             @csrf
             <div>
-                <input type="text" name="title" placeholder="Task title...">
+                <input type="text" name="title" placeholder="Task title..." style="width: 250px">
                 <label for="complete">
                     Completed:
                     <input type="checkbox" name="complete"><br><br>

@@ -4,8 +4,14 @@
     <h1 id="title">
         <b>To-Do List</b>
     </h1>
+    <form action="/tasks" method="GET" id="title">
+        <input type="text" name="search" placeholder="Search..." value="{{ request('search') }}">
+        <button type="submit">
+            search
+        </button>
+    </form>
     <form action="/tasks" method="GET" id="completed">
-        <select name="filter" onchange="this.form.submit()">
+        <select name="filter" onchange="this.form.submit()" style="width: 125px">
             <option value="all" {{ $filter === 'all' ? 'selected' : '' }}>
                 All
             </option>

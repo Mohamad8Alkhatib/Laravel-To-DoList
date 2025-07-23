@@ -13,15 +13,21 @@ class TaskController extends Controller
     public function index(Request $request)
     {
         $filter = $request->query('filter', 'all');
+        $search = $request->query('search');
 
-        $query = match ($filter) {
-            'completed' => Task::where('is_completed', true),
-            'incompleted' => Task::where('is_completed', false),
-            default => Task::query()
+        $query = Task::query();
+        
+        match ($filter) {
+            'completed' => $query->where('is_completed', true),
+            'incompleted' => $query->where('is_completed', false),
+            default => null
         };
+        if ($search) {
+            $query->where('title', 'like', "%{$search}%");
+        }
         $tasks = $query->orderBy('created_at', 'desc')->get();
 
-        return view('tasks.index', compact('tasks', 'filter'));
+        return view('tasks.index', compact('tasks', 'filter', 'search'));
     }
 
     /**
@@ -69,7 +75,7 @@ class TaskController extends Controller
     public function update(Request $request, Task $task)
     {
         $request->validate([
-            'title' => 'required|unique:tasks|min:3'
+            'title' => 'required|min:3'
         ]);
         $task->update([
             'title' => $request->input('title'),

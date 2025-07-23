@@ -14,7 +14,7 @@
             @csrf
             @method('PUT')
             <div>
-                <input type="text" name="title" value="{{ $task->title }}">
+                <input type="text" name="title" value="{{ $task->title }}" style="width: 250px">
                 <label for="complete">
                     Completed:
                     <input type="checkbox" name="complete" {{ $task->is_completed ? 'checked' : ' ' }}><br><br>

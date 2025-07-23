@@ -4,7 +4,8 @@ body{
 }
 #title{
     text-align: center;
-    color: blue;
+
+    text-shadow: 4px 4px 15px red;
 }
 .uppercase{
     text-transform: uppercase;
@@ -34,7 +35,7 @@ a:hover{
 .completed{
     text-decoration: line-through;
     color: gray;
-    opacity: 0.9;
+    /* opacity: 0.9; */
 }
 #back{
     position: absolute;
