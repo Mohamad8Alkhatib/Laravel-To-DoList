@@ -1,0 +1,41 @@
+body{
+    position:relative;
+    left: 30px;
+}
+#title{
+    text-align: center;
+    color: blue;
+}
+.uppercase{
+    text-transform: uppercase;
+}
+a:link,
+a:visited{
+    text-decoration: none;
+    color: red;
+}
+a:hover{
+    color: lightpink;
+}
+#button{
+    position: relative;
+    left: 70%;
+}
+#deleteButton{
+    position: relative;
+    left: 70%;
+    background-color: rgb(79, 79, 223);
+    color: aliceblue;
+}
+#completed{
+    position: relative;
+    left: 70%;
+}
+.completed{
+    text-decoration: line-through;
+    color: gray;
+    opacity: 0.9;
+}
+#back{
+    position: absolute;
+}
