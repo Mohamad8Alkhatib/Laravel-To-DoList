@@ -25,7 +25,7 @@ class TaskController extends Controller
         if ($search) {
             $query->where('title', 'like', "%{$search}%");
         }
-        $tasks = $query->orderBy('created_at', 'desc')->get();
+        $tasks = $query->orderBy('created_at', 'desc')->paginate(3);
 
         return view('tasks.index', compact('tasks', 'filter', 'search'));
     }

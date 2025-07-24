@@ -14,7 +14,7 @@ class TaskSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Task::factory()->count(10)->create();
+        \App\Models\Task::factory()->count(5)->create();
 
         // Task::create([
         //     'title' => 'buy fruits'

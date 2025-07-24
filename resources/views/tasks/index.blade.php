@@ -53,4 +53,8 @@
             <hr>
         </div>
     @endforeach
+    {{ $tasks->appends([
+        'filter' => request('filter'),
+        'search' => request('search')
+    ])->links() }}
 @endsection
